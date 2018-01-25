@@ -1,0 +1,11 @@
+
+<h2>Here are your Books To Read!</h2>
+
+
+<%@books.each do |book|%>
+  <h3><%=book.name%></h3>
+  <ul>
+    <li><%=book.author%></li>
+    <li><%=book.notes%></li>
+  </ul>
+<%end%>
