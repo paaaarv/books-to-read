@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180125013207) do
     t.string "name"
     t.string "author"
     t.text "notes"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
