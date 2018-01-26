@@ -1,4 +1,5 @@
-<h2> Edit Your Book</h2>
+<h2> Edit <%= @book.title %> </h2>
+
 
 <form method = "POST" action = "/books/<%=@book.id%>">
   <input type = 'hidden' name = "_method" value = "PATCH">
