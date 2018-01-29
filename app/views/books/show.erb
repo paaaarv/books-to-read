@@ -5,7 +5,12 @@
 <p> <%= @book.notes%></p>
 
 
+<form action = "/books/<%=@book.id%>/edit" method = "GET">
+  <input type = "hidden" name = "_method" value = "PATCH">
+  <input type = "submit" value = "Edit Book">
+</form>
+
 <form action = "/books/<%=@book.id%>/delete" method = "GET">
   <input type = "hidden" name = "_method" value = "DELETE">
   <input type = "submit" value = "Delete Book">
-</form> 
+</form>
