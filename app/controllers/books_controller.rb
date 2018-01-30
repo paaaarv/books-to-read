@@ -1,3 +1,5 @@
+require 'pry'
+
 class BooksController < ApplicationController
 
 
@@ -16,6 +18,9 @@ class BooksController < ApplicationController
       redirect "/books/new"
     else
       @book = Book.create(name: params["name"], author: params["author"], notes: params["notes"])
+      if !params["genres"]["name"].empty?
+        @book.genres << Genre.new(name: params["genres"]["name"])
+      end
       redirect "/books/#{@book.id}"
     end
   end
