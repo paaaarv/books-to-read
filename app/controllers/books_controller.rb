@@ -19,7 +19,8 @@ class BooksController < ApplicationController
     else
       @book = Book.create(name: params["name"], author: params["author"], notes: params["notes"])
       if !params["genres"]["name"].empty?
-        @book.genres << Genre.new(name: params["genres"]["name"])
+        genre = Genre.new(name: params["genres"]["name"])
+        @book.genres << genre
       end
       redirect "/books/#{@book.id}"
     end

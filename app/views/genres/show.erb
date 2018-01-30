@@ -1,0 +1,7 @@
+<h1><%=@genre.name%> </h1>
+
+<ul>
+  <%@genre.books.each do |book|%>
+    <li><a href = "/book/<%=book.id%>"><%=book.name%></a></li><br>
+  <%end%>
+</ul>
