@@ -2,7 +2,7 @@
  +
  +Specs:
  +- [x] Use Sinatra to build the app
- +- [ ] Use ActiveRecord for storing information in a database (every model has a DB table that info gets saved to)
+ +- [x ] Use ActiveRecord for storing information in a database (every model has a DB table that info gets saved to)
  +- [x ] Include more than one model class (list of model class names e.g. User, Post, Category)(Book, User, Genre)
  +- [x ] Include at least one has_many relationship (x has_many y e.g. User has_many Posts) (user has many books, book/genres has many genres/books through book_genres)
  +- [ ] Include user accounts
