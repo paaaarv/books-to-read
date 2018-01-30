@@ -4,6 +4,11 @@
 
 <p> <%= @book.notes%></p>
 
+<ul>
+  <%@book.genres.each do |genre|%>
+    <li><%=genre.name%></li>
+  <%end%>
+</ul> 
 
 <form action = "/books/<%=@book.id%>/edit" method = "GET">
   <input type = "hidden" name = "_method" value = "PATCH">

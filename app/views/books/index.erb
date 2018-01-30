@@ -3,9 +3,5 @@
 
 
 <%@books.each do |book|%>
-  <h3><%=book.name%></h3>
-  <ul>
-    <li><%=book.author%></li>
-    <li><%=book.notes%></li>
-  </ul>
+  <h3><a href = "/books/<%=book.id%>"><%=book.name%></a></h3>
 <%end%>

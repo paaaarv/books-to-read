@@ -37,8 +37,8 @@ class BooksController < ApplicationController
 
   patch "/books/:id" do
     @book = Book.find(params[:id])
-    @book.update(title: params['title'], author: params["author"], notes: params["notes"])
-    redirect "/books/:id"
+    @book.update(name: params['name'], author: params["author"], notes: params["notes"])
+    redirect "/books/#{@book.id}"
   end
 
   get '/books/:id/delete' do
