@@ -2,18 +2,19 @@
 <h2> <%= @book.author%></h2> <br>
 
 
-<p> <%= @book.notes%></p>
+<p> <%= @book.notes%></p><br>
 
+<h4>Genres:</h4> 
 <ul>
   <%@book.genres.each do |genre|%>
     <li><%=genre.name%></li>
   <%end%>
-</ul> 
+</ul>
 
 <form action = "/books/<%=@book.id%>/edit" method = "GET">
   <input type = "hidden" name = "_method" value = "PATCH">
   <input type = "submit" value = "Edit Book">
-</form>
+</form> <br>
 
 <form action = "/books/<%=@book.id%>/delete" method = "GET">
   <input type = "hidden" name = "_method" value = "DELETE">

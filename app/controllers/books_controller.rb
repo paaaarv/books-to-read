@@ -32,12 +32,16 @@ class BooksController < ApplicationController
 
   get "/books/:id/edit" do
     @book = Book.find(params[:id])
+    @genres = Genre.all
     erb :"/books/edit"
   end
 
   patch "/books/:id" do
     @book = Book.find(params[:id])
-    @book.update(name: params['name'], author: params["author"], notes: params["notes"])
+    @book.update(name: params['name'], author: params["author"], notes: params["notes"], genre_ids: params["genre_ids"])
+    if !params["genres"]["name"].empty?
+      @book.genres << Genre.new(name: params["genres"]["name"])
+    end
     redirect "/books/#{@book.id}"
   end
 
