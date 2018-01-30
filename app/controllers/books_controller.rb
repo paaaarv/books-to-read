@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   get '/books/new' do
+    @genres = Genre.all
     erb :'/books/new'
   end
 

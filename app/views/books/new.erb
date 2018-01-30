@@ -9,5 +9,15 @@
   <label>Notes: </label>
   <textarea name = 'notes' id = 'notes'></textarea>
   <br>
+  <br>
+  <label>Genres: </label>
+  <%@genres.each do |genre|%>
+    <ul>
+    <li><input type = "checkbox" id = "<%= genre.name%>" name = "genre_ids[]" value = "<%= genre.id%>"><%=genre.name%></input></li>
+  </ul>
+  <%end%>
+  <br>
+  <label> Or create a new Genre: </label>
+  <input type = 'text' name = "genres[name]" id = "genres_name">
   <input type = 'submit' value = "Add Book">
 </form>
