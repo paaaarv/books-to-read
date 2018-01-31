@@ -4,9 +4,13 @@ class BooksController < ApplicationController
 
 
   get '/books' do
-    @books = Book.all
-    @user = current_user
-    erb :'/books/index'
+    if logged_in?
+      @books = Book.all
+      @user = current_user
+      erb :'/books/index'
+    else
+      redirect '/login'
+    end
   end
 
   get '/books/new' do
