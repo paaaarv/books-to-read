@@ -2,6 +2,9 @@ require 'pry'
 
 class UsersController < ApplicationController
 
+  get '/' do
+    erb :"/users/home"
+  end 
   get '/login' do
     if logged_in?
       redirect '/books'
