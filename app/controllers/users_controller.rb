@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-    erb :"/users/signup"
+    if logged_in?
+      redirect "/books"
+    else
+      erb :"/users/signup"
+    end
   end
 
   post '/signup' do
@@ -29,10 +33,15 @@ class UsersController < ApplicationController
     else
       redirect '/login'
     end
-  end 
+  end
 
 
   get '/logout' do
+    if logged_in?
+      session.clear
+    else
+      redirect '/login'
+    end 
   end
 
 
