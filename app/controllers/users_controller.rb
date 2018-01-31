@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   get '/' do
     erb :"/users/home"
-  end 
+  end
   get '/login' do
     if logged_in?
       redirect '/books'
@@ -22,19 +22,29 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(username: params["username"], password: params["password"])
-    session[:user_id] = @user.id
-    current_user
-    redirect "/books"
+    if params["username"] == "" || params["password"] == ""
+      flash[:message] = "Please fill in both username and password fields"
+      redirect '/signup'
+    else
+      @user = User.create(username: params["username"], password: params["password"])
+      session[:user_id] = @user.id
+      current_user
+      redirect "/books"
+    end
   end
 
   post '/login' do
-    @user = User.find_by(username: params["username"])
-    if @user && @user.authenticate(params["password"])
-      session[:user_id] = @user.id
-      redirect '/books'
-    else
+    if params["username"] == "" || params["password"] == ""
+      flash[:message] = "Please fill in both username and password fields"
       redirect '/login'
+    else
+      @user = User.find_by(username: params["username"])
+      if @user && @user.authenticate(params["password"])
+        session[:user_id] = @user.id
+        redirect '/books'
+      else
+        redirect '/login'
+      end
     end
   end
 
