@@ -1,7 +1,7 @@
 require 'pry'
-
+require 'rack-flash'
 class BooksController < ApplicationController
-
+  use Rack::Flash
 
   get '/books' do
     if logged_in?
@@ -14,14 +14,18 @@ class BooksController < ApplicationController
   end
 
   get '/books/new' do
+
     if logged_in?
       @genres = Genre.all
       erb :'/books/new'
+    else
+      redirect '/login'
     end
   end
 
   post '/books/new' do
     if params["name"] == "" || params["author"] == ""
+      flash[:notice] = "Please fill out both Book Title & Author Name."
       redirect "/books/new"
     else
       @book = Book.create(name: params["name"], author: params["author"], notes: params["notes"])
