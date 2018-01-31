@@ -3,5 +3,7 @@
 
 
 <%@books.each do |book|%>
-  <h3><a href = "/books/<%=book.id%>"><%=book.name%></a></h3>
+  <% if book.user_id == @user.id%>
+    <h3><a href = "/books/<%=book.id%>"><%=book.name%></a></h3>
+  <%end%>
 <%end%>
