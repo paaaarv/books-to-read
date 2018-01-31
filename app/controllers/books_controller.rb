@@ -1,7 +1,5 @@
 require 'pry'
-require 'rack-flash'
 class BooksController < ApplicationController
-  use Rack::Flash
 
   get '/books' do
     if logged_in?
@@ -9,6 +7,7 @@ class BooksController < ApplicationController
       @user = current_user
       erb :'/books/index'
     else
+      flash[:message] = "Please Log in."
       redirect '/login'
     end
   end
@@ -19,6 +18,7 @@ class BooksController < ApplicationController
       @genres = Genre.all
       erb :'/books/new'
     else
+      flash[:message] = "Please Log in."
       redirect '/login'
     end
   end
@@ -44,6 +44,9 @@ class BooksController < ApplicationController
       @user = current_user
       @book = Book.find(params[:id])
       erb :"/books/show"
+    else
+      flash[:message] = "Please Log in."
+      redirect '/login'
     end
   end
 
@@ -53,6 +56,9 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
       @genres = Genre.all
       erb :"/books/edit"
+    else
+      flash[:message] = "Please Log in."
+      redirect '/login'
     end
   end
 
