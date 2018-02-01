@@ -2,8 +2,10 @@
 
 <ul>
   <%@genre.books.each do |book|%>
-    <h3><li><a href = "/books/<%=book.id%>"><%=book.name%></a></li><br></h3>
+    <%if book.user_id == current_user.id%>
+      <h3><li><a href = "/books/<%=book.id%>"><%=book.name%></a></li><br></h3>
+    <%end%> 
   <%end%>
 </ul>
 
-<h4><a href = "/genres">See More Genres</a> </h4> 
+<h4><a href = "/genres">See More Genres</a> </h4>
