@@ -1,4 +1,4 @@
-require 'pry'
+
 class BooksController < ApplicationController
 
   get '/books' do
