@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-
+  use Rack::Flash
   get '/' do
     erb :"/users/home"
   end
