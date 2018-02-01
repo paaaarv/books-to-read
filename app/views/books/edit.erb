@@ -4,9 +4,9 @@
 <form method = "POST" action = "/books/<%=@book.id%>">
   <input type = 'hidden' name = "_method" value = "PATCH">
   <label>Name:</label>
-  <input type = 'text' name = 'name' id = 'name' value = "name"><br><br>
+  <input type = 'text' name = 'name' id = 'name' value = "<%=@book.name%>"><br><br>
   <label>Author: </label>
-  <input type = 'text' name = 'author' id = 'author' value = "author"><br><br>
+  <input type = 'text' name = 'author' id = 'author' value = "<%=@book.author%>"><br><br>
   <label>Notes: </label>
   <textarea name = 'notes' id = 'notes' value = "notes"></textarea>
   <br>
