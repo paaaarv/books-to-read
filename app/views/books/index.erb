@@ -4,10 +4,10 @@
 
 <%@books.each do |book|%>
   <% if book.user_id == @user.id%>
-    <h3><a href = "/books/<%=book.id%>"><%=book.name%></a></h3>
+    <h3><a href = "/books/<%=book.id%>">Title: <%=book.name%></a></h3>
   <%end%>
 <%end%>
 
-<h3><a href = '/books/new'> Add a new book </a> </h3> 
+<h3><a href = '/books/new'> Add a new book </a> </h3>
 
 <h4><a href = '/logout'> Log out of your account </a></h4>

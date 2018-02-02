@@ -1,10 +1,10 @@
-<h1><%=@genre.name%> </h1>
+<h1>Genre Name: <%=@genre.name%> </h1>
 
 <ul>
   <%@genre.books.each do |book|%>
     <%if book.user_id == current_user.id%>
-      <h3><li><a href = "/books/<%=book.id%>"><%=book.name%></a></li><br></h3>
-    <%end%> 
+      <h3><li><a href = "/books/<%=book.id%>">Title: <%=book.name%></a></li><br></h3>
+    <%end%>
   <%end%>
 </ul>
 
