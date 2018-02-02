@@ -10,7 +10,7 @@
  +- [x ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying(book controller has all these routes)
  +- [x] Include user input validations (can't signup/login/create a new post without filling all fields)
  +- [x ] Display validation failures to user with error message (example form URL e.g. /posts/new) (used rack-flash to display message)
- +- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+ +- [x ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
  +
  +Confirm
  +- [ x] You have a large number of small Git commits
