@@ -5,7 +5,7 @@
 <% @genres.each do |genre|%>
   <% genre.books.each do |book|%>
     <% if book.user_id == current_user.id%>
-      <%book.genres.each do |gen|%>
+      <%book.genres.uniq.each do |gen|%>
         <h3><a href = "/genres/<%=genre.id%>"><%=gen.name%></a> </h3>
       <%end%>
     <%end%>
