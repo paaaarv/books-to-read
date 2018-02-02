@@ -2,7 +2,7 @@
 class GenresController < ApplicationController
 
   get '/genres' do
-    @genres = Genre.all
+    @genres = Genre.user_genres(current_user)
     erb :"/genres/index"
   end
 
