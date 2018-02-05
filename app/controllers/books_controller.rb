@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   get '/books/new' do
 
     if logged_in?
-      @genres = Genre.all
+      @genres = Genre.user_genres(current_user)
       erb :'/books/new'
     else
       flash[:message] = "Please Log in."
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
     if logged_in?
       @user = current_user
       @book = Book.find(params[:id])
-      @genres = Genre.all
+      @genres = Genre.user_genres(current_user)
       erb :"/books/edit"
     else
       flash[:message] = "Please Log in."
